@@ -10,11 +10,12 @@
       href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2FPKief%2Fvscode-material-icon-theme%2Fissues%2F579&psig=AOvVaw0qgYmejh7-SGz7hLAzcvhS&ust=1631534432023000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJDKrcGx-fICFQAAAAAdAAAAABAD"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
       <header>
-        <h3>List Member</h3>
+        <h3>List</h3>
       </header>
 
       <div class="table-wrapper">
@@ -69,6 +70,21 @@
           </tr>
         </table>
         <button class="btn btn-add">Add User</button>
+      </div>
+      <!-- Add Modal -->
+      <div class="add-modal modal-wrapper">
+        <div class="modal">
+          <div class="modal-header"><h3>Add New User</h3></div>
+          <div class="modal-body">
+            <form class="form" autocomplete="off">
+              <input type="text" name="firstName" placeholder="First Name" />
+              <input type="text" name="lastName" placeholder="Last Name" />
+              <input type="number" name="phone" placeholder="Phone" />
+              <input type="email" name="email" placeholder="E-mail" />
+              <button class="btn btn-modal">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </body>

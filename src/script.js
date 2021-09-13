@@ -1,4 +1,16 @@
+const modalWrapper = document.querySelector(".modal-wrapper");
+
+//modal Add
+
 const addModal = document.querySelector(".add-modal");
+
+const addModalForm = document.querySelector(".add-modal .form");
+
+//modal edit
+
+const editModal = document.querySelector(".edit-modal");
+
+const editModalForm = document.querySelector(".edit-modal .form");
 
 const btnAdd = document.querySelector(".btn-add");
 
@@ -6,7 +18,7 @@ const tableUsers = document.querySelector(".table-users");
 
 const renderUser = (doc) => {
   const tr = `
-      <tr>
+      <tr data-id=${doc.id}>
         <td>${doc.data().firstName}</td>
         <td>${doc.data().lastName}</td>
         <td>${doc.data().phone}</td>
@@ -18,6 +30,28 @@ const renderUser = (doc) => {
       </tr>  
     `;
   tableUsers.insertAdjacentHTML("beforeend", tr);
+
+  //Edit user
+
+  const btnEdit = document.querySelector(`[data-id= '${doc.id}'] .btn-edit`);
+
+  btnEdit.addEventListener("click", () => {
+    editModal.classList.add("modal-show");
+  });
+
+  //Delete user
+  const btnDelete = document.querySelector(
+    `[data-id= '${doc.id}'] .btn-delete`
+  );
+  btnDelete.addEventListener("click", () => {
+    db.collection("users")
+      .doc(`${doc.id}`)
+      .delete()
+      .then(() => {
+        console.log("Document successfully");
+      })
+      .catch((error) => console.log("Error removing document ", error));
+  });
 };
 
 btnAdd.addEventListener("click", () => {
@@ -51,3 +85,14 @@ db.collection("users")
       renderUser(doc);
     });
   });
+
+addModalForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  db.collection("users").add({
+    firstName: addModalForm.firstName.value,
+    lastName: addModalForm.lastName.value,
+    phone: addModalForm.phone.value,
+    email: addModalForm.email.value,
+  });
+  modalWrapper.classList.remove("modal-show");
+});

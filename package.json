@@ -1,0 +1,21 @@
+{
+  "name": "crud-js-firebase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipe-tiburcio/Crud-Js-Firebase.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipe-tiburcio/Crud-Js-Firebase/issues"
+  },
+  "homepage": "https://github.com/felipe-tiburcio/Crud-Js-Firebase#readme"
+}
